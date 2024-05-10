@@ -1,0 +1,494 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500;600;700&display=swap");
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Fira Sans", sans-serif;
+}
+
+body {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.on {
+    font-size: 10px;
+}
+.on span {
+    height: 100px;
+    width: 100px;
+    border-radius: 50px;
+    background: green;
+}
+.close {
+    position: absolute;
+    align-self: flex-end;
+    top: 0;
+    right: 0;
+    padding: 10px 20px;
+    cursor: key;
+}
+.overlay {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: -1;
+}
+.box {
+    height: 50px;
+    width: 50px;
+    border-radius: 20px;
+    background-color: blue;
+    position: absolute;
+    right: 50px;
+    top: 550px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+.box img {
+    height: 40px;
+    width: 40px;
+}
+
+.chat-container {
+    background: url(img/ncmc.png) no-repeat;
+    background-position: center;
+    background-size: 230px;
+    height: 300px;
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 10px;
+    font-family: "Fira Sans", sans-serif;
+    overflow-y: auto;
+    position: relative;
+}
+
+.user-message {
+    background-color: #e1ffc7;
+    width: max-content;
+    color: #333;
+    padding: 8px 12px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px 1px 10px 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeInUserMessage 0.5s forwards;
+}
+
+.bot-message {
+    background-color: #c7eaff;
+    color: #333;
+    padding: 8px 12px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    align-self: flex-start;
+    border-radius: 10px 10px 10px 1px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-left: 40px;
+    position: relative;
+    margin-right: 50px;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeInBotMessage 0.5s forwards;
+}
+@keyframes fadeInUserMessage {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInBotMessage {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#userInput {
+    width: 520px;
+    margin-right: 10px;
+    padding: 8px;
+    border: none;
+    background: transparent;
+    font-size: 14px;
+    outline: none;
+    align-items: center;
+}
+
+#sendButton {
+    padding: 5px;
+    border: none;
+    border-radius: 50px;
+    color: #fff;
+    cursor: pointer;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#sendButton img {
+    width: 20px;
+    height: 20px;
+}
+#play {
+    padding: 8px 16px;
+
+    border-radius: 50px;
+    background: #0652c0;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    border: none;
+}
+button {
+    margin-top: 10px;
+}
+.ai-robot {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ai-robot img {
+    max-width: 100px; /* Adjust according to your image size */
+}
+
+/* Animation for the robot image */
+@keyframes moveRobot {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Class to trigger animation */
+.animate-robot {
+    animation-name: moveRobot;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+.input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid #ccc;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 10px;
+    width: 600px;
+}
+
+.keywords {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    overflow-y: auto;
+    background-color: #fff;
+    padding-bottom: 10px;
+    border-radius: 10px;
+    height: 100px;
+}
+
+.sel {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    align-self: flex-start;
+    color: #fff;
+}
+
+.pro {
+    width: 50px;
+    height: 50px;
+    padding: 5px;
+    border-radius: 50px;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    margin-left: 10px;
+    left: -60px;
+    align-self: flex-end;
+    bottom: 0;
+}
+
+.chat-header {
+    height: 50px;
+    width: 600px;
+    display: flex;
+    align-items: center;
+    padding: 0px 30px;
+    background-color: #0652c0;
+    color: var(--light-color);
+    font-size: 1.5rem;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    position: relative;
+}
+
+.chat-header .logo {
+    height: 35px;
+    width: 35px;
+          box-shadow: 0px 0px 10px 0px black;
+    background-color: white;
+}
+.chat-header img {
+    height: 100%;
+    width: 100%;
+}
+.chat-header .title {
+    font-weight: 300;
+    font-family: "Fira Sans", sans-serif;
+    padding-left: 10px;
+    color: #fff;
+}
+.holder {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    align-items: center;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    height: 400px;
+}
+.msg {
+    text-align: justify;
+    font-size: 15px;
+    font-weight: 300;
+    font-family: "Fira Sans", sans-serif;
+}
+
+.all {
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    display: none;
+    z-index: 999;
+}
+.hero {
+    width: 100%;
+    height: 100vh;
+    font-family: "Fira Sans", sans-serif;
+    background: linear-gradient(90deg, rgba(1, 1, 88, 0.82), rgb(1, 1, 29));
+    transition: 1s all ease-in-out;
+    position: relative;
+}
+#init {
+    margin-top: 2rem;
+    background: indianred;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    color: aliceblue;
+    cursor: pointer;
+}
+.desc p {
+    color: rgb(133, 153, 168);
+    margin: 0;
+    font-weight: 600;
+}
+.text {
+    font-size: 65px;
+    font-weight: 800;
+    color: cadetblue;
+    margin: 0;
+}
+.parent {
+    height: 100%;
+    padding: 0 7rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.bot-img {
+    width: 20rem;
+    height: 20rem;
+}
+/* responsive */
+@media (max-width: 767px) {
+    .all {
+        height: 100vh;
+        width: 300px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        display: none;
+    }
+    .chat-container {
+        background: url(img/ncmc.png) no-repeat;
+        background-position: center;
+        background-size: 230px;
+        height: 300px;
+        width: 300px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        padding: 10px;
+        font-family: "Fira Sans", sans-serif;
+        overflow-y: auto;
+        position: relative;
+    }
+
+    .chat-header {
+        height: 50px;
+        width: 300px;
+        display: flex;
+        align-items: center;
+        padding: 0px 30px;
+        background-color: #0652c0;
+        color: var(--light-color);
+        font-size: 1.5rem;
+    }
+
+    .chat-header .logo {
+        height: 35px;
+        width: 35px;
+        box-shadow: 0px 0px 10px 0px black;
+        background-color: white;
+    }
+    .chat-header img {
+        height: 100%;
+        width: 100%;
+    }
+    .chat-header .title {
+        padding-left: 10px;
+        color: #fff;
+    }
+    .ai-robot {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 40px;
+    }
+    .input {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-top: 1px solid #ccc;
+        padding: 10px;
+        width: 300px;
+    }
+
+    .sel {
+        display: flex;
+        align-items: center;
+        margin-top: 20px;
+        justify-content: center;
+        align-self: flex-start;
+        margin-left: 20px;
+    }
+    .keywords {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        width: 300px;
+    }
+    .holder {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #f9f9f9;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        width: 300px;
+    }
+    #userInput {
+        width: 300px;
+
+        margin-right: 10px;
+        padding: 8px;
+        border: none;
+        background: transparent;
+        font-size: 14px;
+        outline: none;
+        align-items: center;
+    }
+    .ai-robot {
+        display: flex;
+
+        justify-content: center;
+        align-items: center;
+        margin-top: 40px;
+    }
+    .msg {
+        text-align: justify;
+        font-size: 15px;
+        font-family: "Fira Sans", sans-serif;
+        font-weight: 300;
+    }
+    .hero {
+        width: 100%;
+        height: 100vh;
+        font-family: "Fira Sans", sans-serif;
+        background: linear-gradient(90deg, rgba(1, 1, 88, 0.82), rgb(1, 1, 29));
+        transition: 1s all ease-in-out;
+        position: relative;
+    }
+    .parent {
+        height: 100%;
+        padding: 0 7rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .overlay {
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: -1;
+    }
+    .overlay .all {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .desc p {
+        color: rgb(133, 153, 168);
+        margin: 0;
+        font-weight: 600;
+        text-align: justify;
+    }
+}

@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Voice chatbot Ai</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="hero">
+            <div class="parent">
+                <div class="desc">
+                    <h1 class="text">NCMC'ian Chatbot</h1>
+                    <p>
+                        The NCMC chatbot AI, revolutionizing the way we interact and engage within our educational community.
+                    </p>
+                    <button id="init" onclick="show()">START CHAT</button>
+                </div>
+                <div>
+                    <img src="img/chatbot.png" alt="" class="bot-img" />
+                </div>
+            </div>
+        </div>
+        <div class="all" id="hide-chatbot">
+            <div class="overlay"></div>
+            <div class="ai-robot">
+                <img src="img/chatbot.png" />
+            </div>
+
+            <div class="holder">
+                <div class="chat-header">
+                    <div class="logo">
+                        <img src="img/ncmc.png" alt="cwt" />
+                    </div>
+                    <div class="title">
+                        NCMC's Bot
+                        <p class="on">Online</p>
+                    </div>
+                    <div class="close" id="close-btn">
+                        <img src="img/icons8_Multiply_25px (1).png" />
+                    </div>
+                </div>
+                <div class="chat-container" id="chatContainer">
+                    <div class="bot-message">
+                        <p class="msg">
+                            <img class="pro" src="img/chatbot.png" /> Hello!
+                            NCMC'cian have a great day
+                        </p>
+                    </div>
+                </div>
+                <div class="input">
+                    <input
+                        type="text"
+                        id="userInput"
+                        placeholder="Select/type your keywords here..."
+                    />
+                    <button id="sendButton" onclick="sendMessage()">
+                        <img src="img/send.svg" />
+                    </button>
+                </div>
+            </div>
+
+            <!--input button-->
+
+            <h4 class="sel">Select Keywords:</h4>
+
+            <div class="keywords">
+                <!--im sad audio-->
+                <audio id="sad">
+                    <source src="imSad.mp3" type="audio/mpeg" />
+                </audio>
+                <button id="play" onclick="setSad()">I'm sad</button>
+
+                <!--courses audio-->
+                <audio id="courses">
+                    <source src="courses.mp3" type="audio/mpeg" />
+                </audio>
+                <button id="play" onclick="setCourses()">NCMC Courses</button>
+
+                <!--mission audio-->
+                <audio id="mission">
+                    <source src="mission.mp3" type="audio/mpeg" />
+                </audio>
+                <button id="play" onclick="setMission()">Misson</button>
+
+                <!--vision audio-->
+                <audio id="vision">
+                    <source src="vision.mp3" type="audio/mpeg" />
+                </audio>
+                <button id="play" onclick="setVision()">Vision</button>
+
+                <!--hi audio-->
+                <audio id="song">
+                    <source src="helloimbot.mp3" type="audio/mpeg" />
+                </audio>
+                <button id="play" onclick="setHi()">Hi</button>
+
+                <!--history audio-->
+                <audio id="history">
+                    <source src="ncmc_history.mp3" type="audio/mpeg" />
+                </audio>
+                <button id="play" onclick="setHistory()">NCMC History</button>
+
+                <!--core values audio-->
+                <audio id="core">
+                    <source src="ncmc_core_values.mp3" type="audio/mpeg" />
+                </audio>
+                <button id="play" onclick="setCore()">Core values</button>
+
+                <!--what your name audio-->
+                <audio id="what">
+                    <source src="what_your_name.mp3" type="audio/mpeg" />
+                </audio>
+                <button id="play" onclick="setWhat()">What's your name?</button>
+
+                <!--ncmc info audio-->
+                <audio id="info">
+                    <source src="ncmc_info.mp3" type="audio/mpeg" />
+                </audio>
+                <button id="play" onclick="setInfo()">NCMC Brief info</button>
+
+                <!--joke button-->
+<!--                 <button id="play" onclick="setJoke()">Tell me joke's</button> -->
+
+                <!--validation audio-->
+                <audio id="aiVal">
+                    <source src="botvalidation.mp3" type="audio/mpeg" />
+                </audio>
+            </div>
+        </div>
+
+        <script src="main.js"></script>
+    </body>
+</html>
